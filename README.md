@@ -1,16 +1,16 @@
-# az-whitelist
+# az-iplist
 
-CLI tool - Azure network security  groups management - whitelist IP address
+CLI tool - Azure network security groups management - manage lists of IP addresses
 
 ```
-AZ-WHITELIST: manages white lists of IP addresses for all Azure resources
+AZ-IPLIST: manages white or black lists of IP addresses for all Azure resources
 
-Usage: az-whitelist <COMMAND>
+Usage: az-iplist <COMMAND>
 
 Commands:
   list    search for existing IP addresses in security group rules
-  add     add IP address to all known white lists
-  remove  remove IP address from all known white lists
+  add     add IP address to all known lists
+  remove  remove IP address from all known lists
   help    Print this message or the help of the given subcommand(s)
 
 Options:

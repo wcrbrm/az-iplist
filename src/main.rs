@@ -5,13 +5,13 @@ mod args {
     pub enum CliCommand {
         /// search for existing IP addresses in security group rules
         List,
-        /// add IP address to all known white lists
+        /// add IP address to all known lists
         Add { ip: String },
-        /// remove IP address from all known white lists
+        /// remove IP address from all known lists
         Remove { ip: String },
     }
 
-    /// AZ-WHITELIST: manages white lists of IP addresses for all Azure resources
+    /// AZ-WHITELIST: manages lists of IP addresses for all Azure resources
     #[derive(Parser, Debug)]
     #[command(author, version, about, long_about = None)]
     pub struct Cli {
@@ -27,7 +27,7 @@ mod logging {
     pub fn start() {
         let is_terminal = atty::is(atty::Stream::Stdout);
         let env_filter = EnvFilter::try_from_default_env()
-            .unwrap_or(EnvFilter::new("INFO,ureq=WARN,az_whitelist=INFO"));
+            .unwrap_or(EnvFilter::new("INFO,ureq=WARN,az_iplist=INFO"));
         let subscriber = tracing_subscriber::fmt::fmt()
             .with_env_filter(env_filter)
             .with_ansi(is_terminal)
